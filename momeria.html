@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>memorama</title>
+  <link rel="stylesheet" href="memorama.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>MEMORAMA</h1>
+    
+    <div class="difficulty-selector">
+      <button class="difficulty-btn active" data-level="easy">Fácil (8 cartas)</button>
+      <button class="difficulty-btn" data-level="medium">Medio (12 cartas)</button>
+      <button class="difficulty-btn" data-level="hard">Difícil (16 cartas)</button>
+    </div>
+
+    <div class="game-stats">
+      <div class="stat-item">
+        <div class="stat-label">Tiempo</div>
+        <div class="stat-value" id="timer">0:00</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Intentos</div>
+        <div class="stat-value" id="moves">0</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Pares</div>
+        <div class="stat-value" id="pairs">0/<span id="totalPairs">4</span></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn" id="startBtn">Iniciar Juego</button>
+      <button class="btn" id="restartBtn">Reiniciar</button>
+    </div>
+
+    <div class="game-board" id="gameBoard"></div>
+  </div>
+
+  <div class="modal" id="winModal">
+    <div class="modal-content">
+      <h2>¡Felicidades!</h2>
+      <p>Has completado el juego</p>
+      <p><strong>Tiempo:</strong> <span id="finalTime"></span></p>
+      <p><strong>Intentos:</strong> <span id="finalMoves"></span></p>
+      <button class="btn" id="playAgainBtn">Jugar de Nuevo</button>
+    </div>
+  </div>
+
+  <script src="memorama.js"></script>
+</body>
+</html>
