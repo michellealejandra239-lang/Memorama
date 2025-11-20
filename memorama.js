@@ -8,7 +8,24 @@ let seconds = 0;
 let canFlip = true;
 let currentDifficulty = 'easy';
 
-const symbols = ['🎯', '🎮', '🎨', '🎭', '🎪', '🎬', '🎸', '🎹', '⚽', '🏀', '🎾', '🏐', '📚', '📖', '✏️', '🎓'];
+const symbols = [
+    'img1.jpg',
+    'img2.jpg',
+    'img3.jpg',
+    'img4.jpg',
+    'img5.jpg',
+    'img6.jpg',
+    'img7.jpg',
+    'img8.jpg',
+    'img9.jpg',
+    'img10.jpg',
+    'img11.jpg',
+    'img12.jpg',
+    'img13.jpg',
+    'img14.jpg',
+    'img15.jpg',
+    'img16.jpg',
+    ];
 
 const difficulties = {
     easy: { pairs: 4, columns: 4 },
@@ -66,10 +83,13 @@ function renderBoard() {
         card.className = 'card';
         card.dataset.index = index;
         
-        card.innerHTML = `
-            <div class="card-front">?</div>
-            <div class="card-back">${symbol}</div>
-        `;
+
+        const isImage = symbol.includes('.jpg') || symbol.includes('.png') || symbol.includes('.jpeg');
+    const backContent = isImage ? `<img src="${symbol}" alt="card">` : symbol;
+
+    card.innerHTML = `
+    <div class="card-front">?</div>
+    <div class="card-back">${backContent}</div>`;
         
         card.addEventListener('click', () => flipCard(card, index));
         gameBoard.appendChild(card);
@@ -141,7 +161,7 @@ function startGame() {
     if (gameStarted) return;
     
     gameStarted = true;
-    startBtn.textContent = '🎮 En Juego...';
+    startBtn.textContent = 'En Juego...';
     startBtn.disabled = true;
     initGame();
     startTimer();
@@ -150,7 +170,7 @@ function startGame() {
 function restartGame() {
     stopTimer();
     gameStarted = false;
-    startBtn.textContent = '🎮 Iniciar Juego';
+    startBtn.textContent = 'Iniciar Juego';
     startBtn.disabled = false;
     winModal.classList.remove('show');
     initGame();
@@ -169,7 +189,7 @@ function endGame() {
     
     winModal.classList.add('show');
     
-    startBtn.textContent = '🎮 Iniciar Juego';
+    startBtn.textContent = 'Iniciar Juego';
     startBtn.disabled = false;
 }
 
